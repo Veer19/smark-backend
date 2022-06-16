@@ -1,0 +1,218 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+
+        * {
+            border: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 12px !important;
+            font-family: sans-serif;
+        }
+
+        .contentWrapper {
+            padding: 50px;
+        }
+
+
+        .customerDetails {
+            width: 40%;
+            display: inline-block;
+        }
+
+        .customerDetails>h3 {
+            /* font-size: 20px; */
+            margin-top: 0;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .customerDetails>h4 {
+            /* font-size: 16px; */
+            font-weight: bold;
+        }
+
+        .paymentDetails {
+            width: 40%;
+            /* margin-right: 100px; */
+            display: inline-block;
+        }
+
+        .paymentDetails>h3 {
+            /* font-size: 20px; */
+            margin-top: 0;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .paymentDetails>h4 {
+            /* font-size: 16px; */
+            font-weight: bold;
+        }
+
+        .invoiceDetails {
+            width: 50%;
+            float: right;
+        }
+
+        .invoiceDetailsTable {
+            background-color: lightgrey;
+            width: 100%;
+            border-spacing: 0;
+            border: none;
+        }
+
+        .invoiceDetailsTable th {
+            width: 100%;
+            background-color: black;
+            padding: 5px 10px;
+            color: white;
+            margin: 20px;
+            border: none;
+        }
+
+        .invoiceDetailsTable td {
+            padding: 5px 10px;
+        }
+
+        .productTableContainer {
+            margin-left: -2px;
+            margin-right: -2px;
+        }
+
+        .costDetails {
+            float: right;
+            width: 50%;
+        }
+
+        .costDetails table {
+            background-color: lightgrey;
+        }
+
+        .costDetails th {
+            text-align: left;
+            width: 100%;
+            background-color: black;
+            padding: 5px 10px;
+            color: white;
+            margin: 5px 10px;
+            border: none;
+        }
+
+        .costDetails td {
+            padding: 5px 10px;
+        }
+
+        .productTable {
+            width: 100%;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+
+        .productTable th {
+            background-color: black;
+            padding: 5px 10px;
+            color: white;
+            margin: 5px 10px;
+            border: none;
+        }
+
+        .productTable td {
+            padding: 5px 10px;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="https://firebasestorage.googleapis.com/v0/b/tapit-connect.appspot.com/o/invoiceTemplate%2FinvoiceHeader.jpg?alt=media&token=6392c2ae-e1b5-4919-853e-1b489743226a"
+        alt="" width="100%">
+    <div id="pageContent">
+        <div class="main-page">
+            <div class="contentWrapper">
+                <div class="topRow">
+                    <div class="customerDetails">
+                        <h3>Invoice to -</h3>
+                        <br/>
+                        <h4>Name: {{name}}</h4>
+                        <h4>Mob No: +{{phone}} </h4>
+                        <p>{{address}}</p>
+                    </div>
+                    <div class="invoiceDetails">
+                        <div>
+                            <table class="invoiceDetailsTable">
+                                <th>INVOICE</th>
+                                <tr>
+                                    <td>Order No : {{orderId}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Date : {{date}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Zip Code : {{zip}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="productTableContainer">
+                    <table class="productTable">
+                        <tr>
+                            <th>Sl.</th>
+                            <th>Description.</th>
+                            <th>Unit Price</th>
+                            <th>Qty.</th>
+                            <th>Total</th>
+                        </tr {{#items}} <tr>
+                        <td>{{index}}</td>
+                        <td>{{name}}</td>
+                        <td>Rs. {{price}}</td>
+                        <td>{{quantity}}</td>
+                        <td>Rs. {{total}}</td>
+                        </tr>
+                        {{/items}}
+                    </table>
+                </div>
+                <div class="bottomRow">
+                    <div class="paymentDetails">
+                        <!-- <h3>Payment Info</h3>
+                        <br/>
+                        <h4>Mode of Payment: {{paymentMethod}}</h4>
+                        <h4>Transaction Status: {{paymentStatus}}</h4>
+                        <br/> -->
+                        <h3>Terms and Conditions</h3>
+                        <br/>
+                        <p> We can add our terms and conditions here, which we are still yet to come up with.
+                            For time being we can just add a random paragraph which need not make sense.
+                            Lets build Tap-It together and create history xD</p>
+                    </div>
+                    <div class="costDetails">
+                        <div>
+                            <table class="invoiceDetailsTable">
+                                <tr>
+                                    <td>Total : Rs. {{totalAmount}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tax : Rs. {{tax}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Discount : Rs. {{discount}}</td>
+                                </tr>
+                                <th>SUB TOTAL : Rs. {{subTotal}}</th>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="pageFooter">
+        <img class="footerImage"
+            src="https://firebasestorage.googleapis.com/v0/b/tapit-connect.appspot.com/o/invoiceTemplate%2FinvoiceFooter.jpg?alt=media&token=18246b2f-8aaa-4e09-9a38-8e5c8b93ba93"
+            alt="" width="100%" />
+    </div>
+</body>
+
+</html>
